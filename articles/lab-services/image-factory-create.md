@@ -16,8 +16,13 @@ ms.author: spelluru
 
 ---
 
+> [!NOTE]
+> The current image factory solution does not support cross-region image distribution. Hence the destination labs recieving images need   to be in the same region as the image factory lab. 
+> To resolve this limitation, you can use the [Azure Image Builder] (https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) to build images and [Azure Shared Image Gallery] (https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) to distribute images by [attaching the image gallery to the specific labs] (https://docs.microsoft.com/azure/lab-services/configure-shared-image-gallery) that need them. 
+
 # Create a custom image factory in Azure DevTest Labs
 This article shows you how to set up a custom image factory by using sample scripts available in the [Git repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
+
 
 ## What's an image factory?
 An image factory is a configuration-as-code solution that builds and distributes images automatically on a regular basis with all the desired configurations. The images in the image factory are always up-to-date, and the ongoing maintenance is almost zero once the whole process is automated. And, because all the required configurations are already in the image, it saves the time from manually configuring the system after a VM has been created with the base OS.
